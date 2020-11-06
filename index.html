@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0px !important;
+    }
+
+    body {
+      /* background-image: url(img/exmple.png); */
+      height: 120vh;
+      color: #fff !important;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .stepwizard-step p {
+      margin-top: 10px;
+    }
+
+    .stepwizard-row {
+      display: table-row;
+    }
+
+    .stepwizard {
+      display: table;
+      width: 100%;
+      position: relative;
+    }
+
+    .stepwizard-step button[disabled] {
+      opacity: 1 !important;
+      filter: alpha(opacity=100) !important;
+    }
+
+    .stepwizard-row:before {
+      top: 28px;
+      bottom: 0;
+      position: absolute;
+      content: " ";
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .stepwizard-step {
+      display: table-cell;
+      text-align: center;
+      position: relative;
+    }
+
+    .btn {
+      border-radius: 0px;
+    }
+
+    .btn-circle {
+      width: 56px;
+      height: 56px;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 20px;
+      line-height: 1.428571429;
+      border-radius: 35px;
+      margin-top: -14px;
+      border: solid 3px #ccc !important;
+      opacity: 1 !important;
+      -webkit-box-shadow: inset 0px 0px 0px 3px #fff !important;
+      -moz-box-shadow: inset 0px 0px 0px 3px #fff !important;
+      -o-box-shadow: inset 0px 0px 0px 3px #fff !important;
+      -ms-box-shadow: inset 0px 0px 0px 3px #fff !important;
+      box-shadow: inset 0px 0px 0px 3px #fff !important;
+      background-color: #428bca;
+    }
+
+    /*
+  
+
+    /*  */
+    .form-control {
+      background: transparent;
+    }
+
+    #competition {
+      display: none;
+    }
+
+    #webinar {
+      display: none;
+    }
+
+    label {
+      font-size: 22px;
+      padding-top: 10px !important;
+    }
+
+    input {
+      height: 40px !important;
+      padding: 15px 6px !important;
+      font-size: 20px !important;
+      border: 1px solid white !important;
+      margin: 10px 0px !important;
+      width: 700px !important;
+    }
+
+    .container1 {
+      width: 100% !important;
+      padding: 50px !important;
+      height: 2350px;
+      padding-top: 0px !important;
+    }
+
+    legend {
+      font-size: 30px;
+      text-align: center;
+      padding: 30px;
+      color: #fff;
+    }
+
+    form {
+      padding: 2px 45px;
+      height: 1200px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .btn-circle {
+      width: 70px;
+      height: 66px;
+      font-size: 25px;
+    }
+
+    .glyphicon {
+      top: 3px;
+    }
+
+    .events {
+      height: 40px !important;
+      /* padding: 15px 6px!important; */
+      font-size: 20px !important;
+      border: 1px solid white !important;
+      /* margin: 10px 0px; */
+      width: 700px !important;
+    }
+
+    @media screen and (max-width: 576px) {
+      input {
+        height: 150px !important;
+      }
+    }
+
+    .id {
+      display: none;
+    }
+
+    button {
+      border: none;
+      background: rgb(39, 182, 163);
+      color: black;
+      border: transparent solid 1px;
+
+      padding: 5px 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 5px;
+      position: relative;
+      box-sizing: border-box;
+      transition: all 500ms ease;
+    }
+
+    button:hover {
+      color: #ff7a59;
+      border: #ff7a59 solid 1px;
+      background: transparent;
+    }
+
+    select option {
+      color: white;
+    }
+
+    select {
+      background-color: black !important;
+      color: white !important;
+    }
+
+    #qr {
+      padding: 50px;
+      width: 100%;
+      display: none;
+      float: left;
+    }
+
+    input {
+      background-color: black !important;
+      color: white !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container1" id="height1" style="background-image: url(img/cse.jpg)">
+    <h1 style="text-align: center; font-size: 45px; padding: 20px 10px 0px 10px">
+      SYNERGY'20
+    </h1>
+    <h1 style="text-align: center; font-size: 35px; padding-bottom: 30px">
+      Registration Form
+    </h1>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
+      <li class="nav-item active pr-4" style="list-style: none">
+        <a class="nav-link" href="index.html"><button class="">BACK TO SITE</button></a>
+      </li>
+    </ul>
+    <div class="stepwizard">
+      <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+          <a href="#ProfileSetup-step" type="button" class="btn btn-primary btn-circle" id="ProfileSetup-step-1">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+          <p>Your Information</p>
+        </div>
+
+        <div class="stepwizard-step">
+          <a href="#Security-Setup-step" type="button" class="btn btn-success btn-circle" id="Security-Setup-step-3">
+            <span class="glyphicon glyphicon-qrcode"></span>
+          </a>
+          <p>Payment Gateway</p>
+        </div>
+      </div>
+    </div>
+
+    <form role="form">
+      <div class="row setup-content" id="ProfileSetup-step">
+        <div class="col-xs-12">
+          <div class="col-md-12">
+            <br />
+            <div class="form-horizontal">
+              <fieldset>
+                <legend>Enter Your Profile Information</legend>
+                <br />
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label">Your Email</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" required="required" name="email" class="form-control"
+                      placeholder="Enter Email" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number">Name</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" required="required" name="name" class="form-control"
+                      placeholder="Enter Name" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 col-lg-3 flt control-label" for="card-number">Contact Number</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" required="required" name="contact" class="form-control"
+                      placeholder="Enter Contact Number" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number">College
+                  </label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" required="required" name="college" class="form-control"
+                      placeholder="College Name" />
+                  </div>
+                </div>
+                <div class="form-group" style="padding: 10px 0px 15px 0px">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number">Studying in</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <select required class="form-control form-control-lg events" name="study">
+                      <option value="">Choose</option>
+                      <option value="12th Pass">12th Pass Out</option>
+                      <option value="1st Year">1st Year</option>
+                      <option value="2nd Year Year">2nd Year</option>
+                      <option value="3rd Year">3rd Year</option>
+                      <option value="4th Year">4th Year</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number">Event</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <select required class="form-control form-control-lg events" name="optn" id="pass"
+                      onchange="drop();">
+                      <option value="">Choose</option>
+                      <option value="COMPETITION">COMPETITION</option>
+                      <option value="WEBINAR/PODCAST">WEBINAR/PODCAST</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number"></label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <select class="form-control form-control-lg events" name="comp" id="competition"
+                      data-default-value="Choose" onchange="myFunction();Amount();qr()" style="display: none">
+                      <option value="Choose" selected="selected">
+                        Choose your competition
+                      </option>
+                      <option value="Clash of Coders">
+                        CLASH OF CODERS 2.0
+                      </option>
+                      <option value="COMMUNIX">COMMUNIX 3.0</option>
+                      <option value="WEBSITE">IN'SITE</option>
+                      <option value="PROJECT PRESENTATION">
+                        TECHNOVATION
+                      </option>
+                      <option value="BOUNTY HUNT">BOUNTY HUNT</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-12 col-md-3 col-lg-3 control-label" for="card-number"></label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <select class="form-control form-control-lg events" name="web" id="webinar"
+                      data-default-value="Choose" onchange="myFunction();Amount();qr()" style="display: none">
+                      <option value="Choose" selected="selected">
+                        Choose your webinar
+                      </option>
+                      <option value="INTRO TO CSE">
+                        INTRODUCTION TO CSE
+                      </option>
+                      <option value="PODCAST HIGHER STUDIES">
+                        PODCAST ON HIGHER STUDIES
+                      </option>
+                      <option value="PODCAST ARMY">
+                        PODCAST ON ARMED FORCES
+                      </option>
+                      <option value="FINANCIAL INTELLIGENCE">
+                        FINANCIAL INTELLIGENCE
+                      </option>
+                      <option value="CONTENT CREATION">CONTENT CRIYA</option>
+                      <option value="CONTENT WRITING">VLOG IT!</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Amount" style="display: none; justify-content: center; align-items: center">
+        <h3 style="padding: 15px">YOUR AMOUNT IS :</h3>
+        <input id="demo" name="amount" onchange="myFunction()" style="
+              width: 65px !important;
+              padding: 13px !important;
+              font-size: 27px !important;
+            " />
+        <h3 style="padding: 10px">INR</h3>
+        <input type="hidden" name="orderId" />
+      </div>
+      <hr />
+
+      <div class="id row setup-content" id="tdetails" name="tdetails">
+        <div class="col-xs-12">
+          <div class="col-md-12">
+            <div class="form-horizontal">
+              <fieldset>
+                <legend>Enter Your Team Info (If Required)</legend>
+                <br />
+                <div id="comx" class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label">Team Member-1</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" class="form-control" name="t1name" placeholder="Enter Name" />
+                  </div>
+                </div>
+
+                <hr style="border: 1px solid black" />
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 col-lg-3 flt control-label" for="card-number">Team Member-2</label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" class="form-control" name="t2name" placeholder="Enter Name" />
+                  </div>
+                </div>
+
+                <hr style="border: 1px solid black" />
+                <div class="form-group">
+                  <label class="col-md-3 col-lg-3 control-label" for="card-number">Team Member-3
+                  </label>
+                  <div class="col-sm-12 col-md-9 col-lg-9">
+                    <input maxlength="100" type="text" class="form-control" name="t3name" placeholder="Enter Name" />
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <hr style="margin-top: 25px !important" />
+          </div>
+        </div>
+      </div>
+
+      <div id="qr">
+        <div class="col-lg-6 col-sm-6 col-md-6" style="border-right: 1px solid white; width: 48%">
+          <p>If nothing works</p>
+          <h3>Pay Using:</h3>
+          <ul style="list-style-type: none; font-size: 2rem; padding: 0">
+            <br />
+            <li id="upi-addr">aman05382@paytm</li>
+            <a onclick="copyToClipboard('#upi-addr')">Copy</a>
+            <br /><br />
+            <li>
+              Phone Number-
+              <a style="font-size: 25px; color: white; text-decoration: none">9763420959</a>
+            </li>
+            <br />
+            <li>
+              Phone Number-
+              <a style="font-size: 25px; color: white; text-decoration: none">7038258118</a>
+            </li>
+            <br /><br />
+          </ul>
+          <h3>Or Scan the Code :</h3>
+          <br /><br />
+          <img src="img/paymentqr.jpg" style="width: 40%" class="" alt="" />
+        </div>
+        <div class="col-lg-6 col-sm-6 col-md-6" style="width: 52%; height: 450px">
+          <h3 style="padding-left: 15px">NOTE:</h3>
+          <br />
+          <h4 style="padding-left: 15px">
+            Once you complete the payment process,Please Fill the details
+            here.
+          </h4>
+          <br /><br />
+          <a href="upi://pay?pa=aman05382@paytm&pn=AMAN SHARMA&cu=INR" id="__UPI_BUTTON__" style="background: #ff912f;border: 2px solid #8a4100;padding: 10px;text-decoration: none;color: white;font-size: larger;border-radius: 10px;">Click to Pay Aman Sharma</a>
+          <div class="form-group">
+            <label class="col-md-9 col-sm-12 col-lg-9 control-label" for="card-number">Transaction ID:</label>
+            <div class="col-sm-12 col-md-9 col-lg-9">
+              <input style="width: 400px !important" maxlength="100" type="text" class="form-control" name="trans"
+                placeholder="Enter your payment transaction Id" />
+            </div>
+          </div>
+          <!-- <label class="col-md-9 col-sm-12 col-lg-9 control-label " style="margin-top: 20px!important;">Upload your screenshot:</label>
+            <input required style="height: 50px !important;
+            padding: 15px 27px !important;font-size: 20px !important;border: 0px solid white !important;
+            margin: 10px 0px !important;
+            width: 350px !important;background-color: transparent!important;
+            color: white!important;" type="file" class="" name="ss" /> -->
+        </div>
+      </div>
+
+      <button class="btn-lg pull-right" value="submit" type="submit"
+        style="margin-top: 20px !important; font-size: 25px">
+        SUBMIT
+      </button>
+    </form>
+  </div>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script type="text/javascript">
+
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+
+  </script>
+
+  <script type="text/javascript">
+    function drop() {
+      var e;
+      var a;
+      var x;
+      e = document.getElementById("competition");
+      a = document.getElementById("webinar");
+
+      x = document.getElementById("pass").value;
+
+      if (x == "COMPETITION") {
+        if (e.style.display == "none") {
+          e.style.display = "block";
+          a.style.display = "none";
+        } else e.style.display = "none";
+      } else if (x == "WEBINAR/PODCAST") {
+        if (a.style.display == "none") {
+          a.style.display = "block";
+          e.style.display = "none";
+        } else a.style.display = "none";
+      } else {
+        x = "NULL";
+      }
+    }
+  </script>
+
+  <script>
+    function myFunction() {
+      var e;
+      var a;
+      var x;
+      var y;
+      var n;
+      var g;
+
+      e = document.getElementById("competition");
+      a = document.getElementById("webinar");
+      g = document.getElementById("tdetails");
+
+      x = document.getElementById("pass").value;
+
+      if (x == "COMPETITION") {
+        if (e.value == "Clash of Coders") {
+          y = 50;
+        } else if (e.value == "WEBSITE") {
+          y = 70;
+        } else if (e.value == "COMMUNIX") {
+          y = 30;
+        } else if (e.value == "PROJECT PRESENTATION") {
+          y = 80;
+        } else if (e.value == "BOUNTY HUNT") {
+          y = 80;
+        }
+
+        document.getElementById("demo").value = y;
+
+        if (
+          e.value == "WEBSITE" ||
+          e.value == "PROJECT PRESENTATION" ||
+          e.value == "BOUNTY HUNT"
+        ) {
+          g.style.display = "block";
+        } else {
+          g.style.display = "none";
+        }
+      } else if (x == "WEBINAR/PODCAST") {
+        g.style.display = "none";
+
+        if (a.value == "FINANCIAL INTELLIGENCE") {
+          n = 25;
+        } else if (a.value == "INTRO TO CSE") {
+          n = 0;
+        } else if (a.value == "PODCAST HIGHER STUDIES") {
+          n = 0;
+        } else if (a.value == "PODCAST ARMY") {
+          n = 0;
+        } else if (a.value == "CONTENT WRITING") {
+          n = 0;
+        } else if (a.value == "CONTENT CREATION") {
+          n = 0;
+        }
+        document.getElementById("demo").value = n;
+      } else {
+        document.getElementById("demo").innerHTML = "Enter Your Choice";
+      }
+    }
+  </script>
+  <script>
+    function reset() {
+      document.getElementById("#competition").selectedIndex = 0;
+    }
+
+    $("#webinar").on("change", function reset() {
+      $("#competition").val($("#competition").data("default-value"));
+    });
+  </script>
+  <script>
+    function reset() {
+      document.getElementById("webinar").selectedIndex = 0;
+    }
+
+    $("#competition").on("change", function reset() {
+      $("#webinar").val($("#webinar").data("default-value"));
+    });
+  </script>
+  <script>
+    function Amount() {
+      var k;
+
+      var a;
+      var e;
+      k = document.getElementById("Amount");
+
+      a = document.getElementById("webinar");
+      e = document.getElementById("competition");
+      if (
+        e.value == "Clash of Coders" ||
+        e.value == "WEBSITE" ||
+        e.value == "COMMUNIX" ||
+        e.value == "PROJECT PRESENTATION" ||
+        e.value == "BOUNTY HUNT" ||
+        a.value == "FINANCIAL INTELLIGENCE" ||
+        a.value == "INTRO TO CSE" ||
+        a.value == "PODCAST HIGHER STUDIES" ||
+        a.value == "PODCAST ARMY" ||
+        a.value == "CONTENT WRITING" ||
+        a.value == "CONTENT CREATION"
+      ) {
+        k.style.display = "flex";
+      } else {
+        k.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    function qr() {
+      var o;
+      var e;
+      var a;
+      o = document.getElementById("qr");
+      e = document.getElementById("competition");
+      a = document.getElementById("webinar");
+      if (
+        e.value == "Clash of Coders" ||
+        e.value == "WEBSITE" ||
+        e.value == "COMMUNIX" ||
+        e.value == "PROJECT PRESENTATION" ||
+        e.value == "BOUNTY HUNT" ||
+        a.value == "FINANCIAL INTELLIGENCE"
+      ) {
+        o.style.display = "block";
+      } else {
+        o.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>
