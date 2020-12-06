@@ -1,2 +1,5 @@
 # pay
-with this way tou can use this any QR code on Your Website to Pay without scanning it.
+use this on Your Website to Pay on UPI without scanning it.
+
+#demo
+https://aman05382.github.io/pay/
